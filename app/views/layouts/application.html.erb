@@ -13,7 +13,7 @@
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
-	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+	<title><%= content_for?(:title) ? yield(:title) : "Treebook" %></title>
   
 	<!-- Included CSS Files -->
 	<%= stylesheet_link_tag    "application" %>
@@ -24,6 +24,73 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= yield %>
+
+
+    <nav class="top-bar">
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <h1>
+            <a href="#">
+              Treebook
+            </a>
+          </h1>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>
+
+      <section>
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li class="divider"></li>
+          <li class="has-dropdown">
+            <a class="active" href="#">Statuses</a>
+            <ul class="dropdown">
+              <li><label>Section Name</label></li>
+              <li class="has-dropdown">
+                <a href="#" class="">Level 1, Has Dropdown</a>
+                <ul class="dropdown">
+                  <li><a href="#">Level 2</a></li>
+                  <li><a href="#">Level 2</a></li>
+                  <li class="has-dropdown"><a href="#">Level 2, Has Dropdown</a>
+                    <ul class="dropdown">
+                      <li><label>Section</label></li>
+                      <li><a href="#">Level 3</a></li>
+                      <li><a href="#">Level 3</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Level 3</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Level 2</a></li>
+                  <li><a href="#">Level 2</a></li>
+                </ul>
+              </li>
+              <li><%= link_to 'All Status', statuses_path %></li>
+              <li><%= link_to 'New Status', new_status_path %></li>
+              <li class="divider"></li>
+              <li><label>Section Name</label></li>
+              <li><a href="#">Level 1</a></li>
+              <li><a href="#">Level 1</a></li>
+              <li><a href="#">Level 1</a></li>
+              <li class="divider"></li>
+              <li><a href="#">See all &rarr;</a></li>
+            </ul>
+          </li>
+          <li class="divider hide-for-small"></li>
+        </ul>
+
+        <!-- Right Nav Section -->
+        
+      </section>
+    </nav>
+
+
+
+	<div class="row">
+ 
+  <div class="twelve columns">
+    <%= yield %>
+  </div>
+
 </body>
 </html>
