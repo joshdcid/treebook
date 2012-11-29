@@ -46,50 +46,35 @@
           <li class="has-dropdown">
             <a class="active" href="#">Statuses</a>
             <ul class="dropdown">
-              <li><label>Section Name</label></li>
-              <li class="has-dropdown">
-                <a href="#" class="">Level 1, Has Dropdown</a>
-                <ul class="dropdown">
-                  <li><a href="#">Level 2</a></li>
-                  <li><a href="#">Level 2</a></li>
-                  <li class="has-dropdown"><a href="#">Level 2, Has Dropdown</a>
-                    <ul class="dropdown">
-                      <li><label>Section</label></li>
-                      <li><a href="#">Level 3</a></li>
-                      <li><a href="#">Level 3</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#">Level 3</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="#">Level 2</a></li>
-                  <li><a href="#">Level 2</a></li>
-                </ul>
-              </li>
+              <li><label>Statuses Menu</label></li>
               <li><%= link_to 'All Status', statuses_path %></li>
               <li><%= link_to 'New Status', new_status_path %></li>
-              <li class="divider"></li>
-              <li><label>Section Name</label></li>
-              <li><a href="#">Level 1</a></li>
-              <li><a href="#">Level 1</a></li>
-              <li><a href="#">Level 1</a></li>
-              <li class="divider"></li>
-              <li><a href="#">See all &rarr;</a></li>
             </ul>
           </li>
           <li class="divider hide-for-small"></li>
         </ul>
 
         <!-- Right Nav Section -->
-        
+         <ul class="right">
+          <% if user_signed_in? %>
+          <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+          <% else %>
+          <li><%= link_to "Register", new_user_registration_path %></li>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+          <% end %>
+        </ul>
       </section>
     </nav>
 
-<p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
 
 	<div class="row">
  
   <div class="twelve columns">
+    <div class="alert-box">
+  <%= notice %>
+  <%= alert %>
+</div>
     <%= yield %>
   </div>
 
